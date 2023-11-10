@@ -1,3 +1,5 @@
+/* styles.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
 
 :root {
@@ -17,12 +19,12 @@
 }
 
 body {
-    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Baskervville', serif;
-    background-color: var(--mediumBlue);
+    background-color: var(--darkestBlue);
     color: var(--text);
-    justify-content: center;
-    padding-top: 15rem;
 }
 
 h2 {
@@ -30,7 +32,18 @@ h2 {
     text-align: center;
 }
 
+/* admin.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15rem;
+}
+
 .dashboard {
+    display: flex;
+    flex-direction: column;
     max-width: 600px;
     align-items: center;
     justify-content: center;
@@ -39,7 +52,7 @@ h2 {
 .options {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 20px;
 }
 
@@ -64,4 +77,132 @@ h2 {
 
 .options-group {
     margin: 2rem;
+}
+
+
+/* create-news.css */
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 10px;
+    color: var(--bttnBox);
+}
+
+input,
+textarea {
+    padding: 8px;
+    margin: 6px 0 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--lightGray);
+    color: var(--mediumBlue);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: var(--bttnBox);
+    color: var(--mediumBlue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--lightGray);
+}
+
+.return-btn {
+    background-color: var(--bttnBox);
+    color: var(--mediumBlue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.return-btn:hover {
+    background-color: var(--lightGray);
+}
+
+.retur-btn-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-container{
+    margin-top: 2rem;
+}
+
+/* edit-news.css */
+
+.container-edit-news{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.returned-news {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.returned-news form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.returned-news label {
+    margin-top: 10px;
+    color: var(--bttnBox);
+}
+
+.returned-news textarea {
+    padding: 8px;
+    margin: 6px 0 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--lightGray);
+    color: var(--mediumBlue);
+    resize: vertical;
+}
+
+.returned-news textarea#content {
+    height: 200px;
+}
+
+.returned-news input,
+.returned-news textarea {
+    width: 100%;
+}
+
+.returned-news button {
+    background-color: var(--bttnBox);
+    color: var(--mediumBlue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.returned-news button:hover {
+    background-color: var(--lightGray);
 }

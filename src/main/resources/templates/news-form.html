@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="dashboard">
-    <h2>Admin Dashboard</h2>
-    <div class="options">
-        <div class="options-group">
-            <div class="option">
-                <a href="#">Create News</a>
+<div class="container">
+    <div class="dashboard">
+        <h2>Admin Dashboard</h2>
+        <div class="options">
+            <div class="options-group">
+                <div class="option">
+                    <a th:href="@{/create-news}">Create News</a>
+                </div>
+                <div class="option">
+                    <a href="#">Read News</a>
+                </div>
             </div>
-            <div class="option">
-                <a href="#">Read News</a>
-            </div>
-        </div>
-        <div class="options-group">
-            <div class="option">
-                <a href="#">Update News</a>
-            </div>
-            <div class="option">
-                <a href="#">Delete News</a>
+            <div class="options-group">
+                <div class="option">
+                    <a href="edit-news.html">Update News</a>
+                </div>
+                <div class="option">
+                    <a href="#">Delete News</a>
+                </div>
             </div>
         </div>
     </div>

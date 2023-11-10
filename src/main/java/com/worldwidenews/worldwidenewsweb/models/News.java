@@ -13,9 +13,10 @@ public class News {
 
     private String title;
     private String description;
-    private String content;
-    private String category;
 
-    @Lob
-    private byte[] image;
+    @Column(length = 2500)
+    private String content;
+
+    private String category;
+    private String imageUrl;
 }

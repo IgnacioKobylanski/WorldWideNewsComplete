@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville&display=swap');
+
+:root {
+    --lightBlue: #2a2a40;
+    --mediumBlue: #1b1b32;
+    --darkestBlue: #0a0a23;
+    --lightGray: #d0d0d5;
+    --text: #f5f6f7;
+    --bttnBox: #feac32;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baskervville', serif;
+}
+
+body {
+    display: flex;
+    font-family: 'Baskervville', serif;
+    background-color: var(--mediumBlue);
+    color: var(--text);
+    justify-content: center;
+    padding-top: 15rem;
+}
+
+h2 {
+    color: var(--bttnBox);
+    text-align: center;
+}
+
+.dashboard {
+    max-width: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.option {
+    flex: 1 0 45%;
+    background-color: var(--bttnBox);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.option a {
+    text-decoration: none;
+    color: var(--mediumBlue);
+    font-weight: bold;
+}
+
+.option:hover {
+    background-color: var(--lightGray);
+}
+
+.options-group {
+    margin: 2rem;
+}

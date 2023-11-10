@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Noticias</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<h2>Crear Noticia</h2>
-<form th:action="@{/api/news}" method="post" enctype="multipart/form-data">
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" required>
-
-    <label for="description">Descripción:</label>
-    <input type="text" id="description" name="description" required>
-
-    <label for="content">Contenido:</label>
-    <textarea id="content" name="content" required></textarea>
-
-    <label for="category">Categoría:</label>
-    <input type="text" id="category" name="category" required>
-
-    <label for="image">Imagen:</label>
-    <input type="file" id="image" name="image" accept="image/*" required>
-
-    <button type="submit">Crear Noticia</button>
-</form>
+<div class="dashboard">
+    <h2>Admin Dashboard</h2>
+    <div class="options">
+        <div class="options-group">
+            <div class="option">
+                <a href="#">Create News</a>
+            </div>
+            <div class="option">
+                <a href="#">Read News</a>
+            </div>
+        </div>
+        <div class="options-group">
+            <div class="option">
+                <a href="#">Update News</a>
+            </div>
+            <div class="option">
+                <a href="#">Delete News</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

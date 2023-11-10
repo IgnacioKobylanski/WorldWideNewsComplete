@@ -7,7 +7,6 @@ import com.worldwidenews.worldwidenewsweb.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
@@ -25,24 +24,20 @@ public class AdminController {
 
     @GetMapping("/create-news")
     public String showCreateNewsForm(Model model) {
-        // Puedes agregar lógica adicional si es necesario
+            model.addAttribute("newsForm", new NewsForm());
         return "news-form";
     }
 
     @PostMapping("/create-news")
     public String createNews(@ModelAttribute NewsForm newsForm,
-                             @RequestParam("imageFile") MultipartFile imageFile,
                              RedirectAttributes redirectAttributes) throws IOException {
-        // Procesar la imagen
-        byte[] imageBytes = imageFile.getBytes();
-
         // Crear una nueva instancia de News
         News news = new News();
         news.setTitle(newsForm.getTitle());
         news.setDescription(newsForm.getDescription());
         news.setContent(newsForm.getContent());
         news.setCategory(newsForm.getCategory());
-        news.setImage(imageBytes);
+        news.setImageUrl(newsForm.getImageUrl());  // Usar la URL en lugar de la imagen
 
         // Guardar la noticia en la base de datos
         newsService.saveNews(news);
@@ -51,6 +46,4 @@ public class AdminController {
         redirectAttributes.addFlashAttribute("successMessage", "Noticia creada exitosamente");
         return "redirect:/admin/create-news";
     }
-
-
 }

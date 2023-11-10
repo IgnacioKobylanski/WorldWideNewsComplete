@@ -8,5 +8,5 @@ public class NewsForm {
     private String description;
     private String content;
     private String category;
-    private byte[] image;
+    private String imageUrl;
 }

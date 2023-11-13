@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete News</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="delete-news-container">
+    <h2>Delete News</h2>
+
+    <form th:action="@{/admin/delete-news}" method="post">
+        <label for="newsId">Enter News ID:</label>
+        <input type="text" id="newsId" name="newsId" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Mostrar la información de la noticia si newsToDelete no es null -->
+    <div th:if="${newsToDelete != null}">
+        <p>ID: <span th:text="${newsToDelete.id}"></span></p>
+        <p>Title: <span th:text="${newsToDelete.title}"></span></p>
+        <p>Description: <span th:text="${newsToDelete.description}"></span></p>
+        <!-- Agregar otros campos según la estructura de tu entidad News -->
+    </div>
+
+    <form th:action="@{/admin/confirm-delete}" method="post">
+        <!-- Incluir el campo oculto solo si newsToDelete no es null -->
+        <input th:if="${newsToDelete != null}" type="hidden" th:field="*{id}" th:value="${newsToDelete.id}">
+        <button type="submit">Confirm Delete</button>
+    </form>
+</div>
+<div class="retur-btn-container">
+    <a th:href="@{/admin/news-form}" class="return-btn">Back</a>
+</div>
+</body>
+</html>

@@ -206,3 +206,51 @@ button:hover {
 .returned-news button:hover {
     background-color: var(--lightGray);
 }
+/* delete-news.css */
+
+.delete-news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.delete-news-container h2 {
+    color: var(--bttnBox);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.delete-news-container div {
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid var(--bttnBox);
+    border-radius: 8px;
+}
+
+.delete-news-container p {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.delete-news-container form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+.delete-news-container button {
+    background-color: var(--bttnBox);
+    color: var(--mediumBlue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-news-container button:hover {
+    background-color: var(--lightGray);
+}

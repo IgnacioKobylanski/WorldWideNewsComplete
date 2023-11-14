@@ -206,6 +206,7 @@ button:hover {
 .returned-news button:hover {
     background-color: var(--lightGray);
 }
+
 /* delete-news.css */
 
 .delete-news-container {
@@ -254,3 +255,95 @@ button:hover {
 .delete-news-container button:hover {
     background-color: var(--lightGray);
 }
+
+/* show-news.css */
+
+.show-news-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--mediumBlue);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.show-news-container form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.show-news-container label {
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.show-news-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--lightGray);
+    color: var(--mediumBlue);
+}
+
+.show-news-container button {
+    background-color: var(--bttnBox);
+    color: var(--darkestBlue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.show-news-container button:hover {
+    background-color: var(--lightGray);
+}
+
+.show-news-container h3 {
+    color: var(--text);
+    margin-top: 20px;
+}
+
+.show-news-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.show-news-container li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--lightGray);
+    padding-bottom: 20px;
+}
+
+.show-news-container li:last-child {
+    border-bottom: none;
+}
+
+.show-news-container p {
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.return-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-btn {
+    background-color: var(--bttnBox);
+    color: var(--mediumBlue);
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px; /* Añadido para dar espacio entre las noticias y el botón de retorno */
+}
+
+.return-btn:hover {
+    background-color: var(--lightGray);
+}
+

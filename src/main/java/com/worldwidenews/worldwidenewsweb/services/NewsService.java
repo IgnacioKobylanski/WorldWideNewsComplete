@@ -17,15 +17,19 @@ public class NewsService {
         this.newsRepository = newsRepository;
     }
 
-    public List<News> getAllNews(){
+    public List<News> getAllNews() {
         return newsRepository.findAll();
     }
 
-    public News saveNews(News news){
+    public News saveNews(News news) {
         return newsRepository.save(news);
     }
 
     public Optional<News> getNewsById(Long id) {
         return newsRepository.findById(id);
+    }
+
+    public void deleteNewsById(Long id) {
+        newsRepository.deleteById(id);
     }
 }

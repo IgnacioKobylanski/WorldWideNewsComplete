@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show News</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="show-news-container">
+    <h2>Show News</h2>
+
+
+
+    <form th:action="@{/admin/show-news}" method="get">
+        <label for="newsId">Enter News ID:</label>
+        <input type="text" id="newsId" name="newsId" required>
+        <button type="submit">Search by ID</button>
+    </form>
+
+
+    <div th:if="${news}">
+        <p>ID: <span th:text="${news.id}"></span></p>
+        <p>Title: <span th:text="${news.title}"></span></p>
+        <p>Description: <span th:text="${news.description}"></span></p>
+    </div>
+
+
+    <h3>All News</h3>
+    <ul th:if="${allNews}">
+        <li th:each="n : ${allNews}">
+            <p>ID: <span th:text="${n.id}"></span></p>
+            <p>Title: <span th:text="${n.title}"></span></p>
+            <p>Description: <span th:text="${n.description}"></span></p>
+            <hr>
+        </li>
+    </ul>
+</div>
+
+<div class="return-btn-container">
+    <a th:href="@{/admin/news-form}" class="return-btn">Back</a>
+</div>
+</body>
+</html>

@@ -30,8 +30,25 @@
     <div class="retur-btn-container">
         <a th:href="@{/admin/news-form}" class="return-btn">Back</a>
     </div>
+    <div th:if="${successMessage}" class="success-message" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 10px; border-radius: 5px; text-align: center; animation: fadeOut 5s ease-out;">
+        <p th:text="${successMessage}">${successMessage}</p>
+    </div>
+    <style>
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+    </div>
+    <script th:if="${successMessage}">
+        setTimeout(function() {
+            var successMessage = document.querySelector('.success-message');
+            successMessage.parentNode.removeChild(successMessage);
+        }, 3000);  // Elimina el mensaje después de 3 segundos
+    </script>
 
-</div>
+
+
 </body>
 
 </html>

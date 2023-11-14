@@ -16,22 +16,40 @@
         <button type="submit">Search</button>
     </form>
 
-    <!-- Mostrar la información de la noticia si newsToDelete no es null -->
+
     <div th:if="${newsToDelete != null}">
         <p>ID: <span th:text="${newsToDelete.id}"></span></p>
         <p>Title: <span th:text="${newsToDelete.title}"></span></p>
         <p>Description: <span th:text="${newsToDelete.description}"></span></p>
-        <!-- Agregar otros campos según la estructura de tu entidad News -->
     </div>
 
-    <form th:action="@{/admin/confirm-delete}" method="post">
+    <form th:action="@{/admin/confirm-delete}" method="post" th:object="${newsToDelete}">
         <!-- Incluir el campo oculto solo si newsToDelete no es null -->
-        <input th:if="${newsToDelete != null}" type="hidden" th:field="*{id}" th:value="${newsToDelete.id}">
+        <input th:if="${newsToDelete != null}" type="hidden" name="id" th:value="${newsToDelete.id}">
         <button type="submit">Confirm Delete</button>
     </form>
+
+
 </div>
 <div class="retur-btn-container">
     <a th:href="@{/admin/news-form}" class="return-btn">Back</a>
 </div>
+
+<div th:if="${successMessage}" class="success-message" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 10px; border-radius: 5px; text-align: center; animation: fadeOut 5s ease-out;">
+    <p th:text="${successMessage}">${successMessage}</p>
+</div>
+<style>
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+</style>
+</div>
+<script th:if="${successMessage}">
+    setTimeout(function() {
+        var successMessage = document.querySelector('.success-message');
+        successMessage.parentNode.removeChild(successMessage);
+    }, 3000);  // Elimina el mensaje después de 3 segundos
+</script>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -30,7 +31,6 @@ public class AdminController {
 
     @GetMapping("/news-form")
     public String showNewsForm(Model model) {
-        // Lógica para obtener y agregar información al modelo si es necesario
         return "news-form";
     }
 
@@ -42,36 +42,42 @@ public class AdminController {
 
     @PostMapping("/create-news")
     public String createNews(@ModelAttribute NewsForm newsForm,
-                             RedirectAttributes redirectAttributes) throws IOException {
-        // Lógica para crear una nueva noticia
-        // ...
+                             RedirectAttributes redirectAttributes,  Model model) throws IOException {
+        News news = new News();
+        news.setTitle(newsForm.getTitle());
+        news.setDescription(newsForm.getDescription());
+        news.setContent(newsForm.getContent());
+        news.setCategory(newsForm.getCategory());
+        news.setImageUrl(newsForm.getImageUrl());
 
-        // Redirigir con un mensaje de éxito
-        redirectAttributes.addFlashAttribute("successMessage", "Noticia creada exitosamente");
+        newsService.saveNews(news);
+
+        if (!model.containsAttribute("successMessage")) {
+            redirectAttributes.addFlashAttribute("successMessage", "News Created");
+        }
         return "redirect:/admin/create-news";
     }
 
+
+
     @GetMapping("/edit-news")
     public String showEditNewsForm(Model model) {
-        // Lógica para mostrar el formulario de edición
         model.addAttribute("newsForm", new NewsForm());
         return "edit-news";
     }
 
     @PostMapping("/delete-news")
     public String deleteNews(@RequestParam("newsId") Long newsId, Model model, RedirectAttributes redirectAttributes) {
-        // Lógica para buscar la noticia por ID
         Optional<News> optionalNewsToDelete = newsService.getNewsById(newsId);
 
         if (optionalNewsToDelete.isPresent()) {
-            // Si la noticia se encuentra, la agregamos al modelo para mostrar la información
             model.addAttribute("newsToDelete", optionalNewsToDelete.get());
-            return "delete-news";
         } else {
-            // Si la noticia no se encuentra, añadimos un mensaje de error
-            redirectAttributes.addFlashAttribute("errorMessage", "No se encontró una noticia con ese ID");
+            redirectAttributes.addFlashAttribute("errorMessage", "Cannot find a news with that ID");
             return "redirect:/admin/delete-news";
         }
+
+        return "delete-news";
     }
 
     @GetMapping("/delete-news")
@@ -80,4 +86,39 @@ public class AdminController {
         return "delete-news";
     }
 
+    @PostMapping("/confirm-delete")
+    public String confirmDelete(@RequestParam("id") Long newsId, RedirectAttributes redirectAttributes) {
+        // Lógica para confirmar y eliminar la noticia
+        Optional<News> optionalNewsToDelete = newsService.getNewsById(newsId);
+
+        if (optionalNewsToDelete.isPresent()) {
+            newsService.deleteNewsById(newsId);
+            redirectAttributes.addFlashAttribute("successMessage", "News Deleted");
+        } else {
+            redirectAttributes.addFlashAttribute("errorMessage", "Cannot find a news with that ID");
+        }
+
+        return "redirect:/admin/delete-news";
+    }
+
+
+
+    @GetMapping("/show-news")
+    public String showNews(@RequestParam(value = "newsId", required = false) Long newsId, Model model) {
+
+        if (newsId != null) {
+            Optional<News> optionalNews = newsService.getNewsById(newsId);
+
+            if (optionalNews.isPresent()) {
+                model.addAttribute("news", optionalNews.get());
+            } else {
+                model.addAttribute("errorMessage", "No se encontró una noticia con ese ID");
+            }
+        }
+
+        List<News> allNews = newsService.getAllNews();
+        model.addAttribute("allNews", allNews);
+
+        return "show-news";
+    }
 }

@@ -331,6 +331,7 @@ button:hover {
 .return-btn-container {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 2rem;
 }
 
 .return-btn {

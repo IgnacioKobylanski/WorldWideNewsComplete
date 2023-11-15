@@ -121,4 +121,49 @@ public class AdminController {
 
         return "show-news";
     }
+
+    @PostMapping("/update-news")
+    public String updateNews(@RequestParam("newsId") Long newsId, Model model) {
+        Optional<News> optionalNews = newsService.getNewsById(newsId);
+
+        if (optionalNews.isPresent()) {
+            model.addAttribute("foundNews", true);
+            model.addAttribute("newsForm", optionalNews.get());
+        } else {
+            model.addAttribute("foundNews", false);
+            model.addAttribute("errorMessage", "Cannot find a news with that ID");
+        }
+
+        return "edit-news";
+    }
+
+
+
+    @PostMapping("/confirm-update")
+    public String confirmUpdate(@ModelAttribute News news, NewsForm newsForm, RedirectAttributes redirectAttributes) {
+        Long newsId = news.getId();
+        Optional<News> optionalNews = newsService.getNewsById(newsId);
+
+        if (optionalNews.isPresent()) {
+            News updatedNews = optionalNews.get();
+            updatedNews.setTitle(newsForm.getTitle());
+            updatedNews.setDescription(newsForm.getDescription());
+            updatedNews.setContent(newsForm.getContent());
+            updatedNews.setCategory(newsForm.getCategory());
+            updatedNews.setImageUrl(newsForm.getImageUrl());
+
+            newsService.saveNews(updatedNews);
+
+            redirectAttributes.addFlashAttribute("successMessage", "News Updated");
+        } else {
+            redirectAttributes.addFlashAttribute("errorMessage", "Cannot find a news with that ID");
+        }
+
+        return "redirect:/admin/edit-news";
+    }
+
+
+
+
+
 }

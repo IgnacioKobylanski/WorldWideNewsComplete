@@ -11,15 +11,17 @@
     <div class="container-edit-news">
         <div class="dashboard">
             <h2>Update News</h2>
-            <form th:action="@{/admin/update-news}" method="get">
-                <label for="newsId">Enter News ID:</label>
+
+            <form th:action="@{/admin/update-news}" method="post" th:object="${newsForm}">
+            <label for="newsId">Enter News ID:</label>
                 <input type="text" id="newsId" name="newsId" required>
                 <button type="submit">Search</button>
             </form>
 
 
             <div class="returned-news" th:if="${foundNews}">
-                <form th:action="@{/admin/update-news}" method="post" th:object="${newsForm}">
+                <form th:action="@{/admin/confirm-update}" method="post" th:object="${newsForm}">
+                    <input type="hidden" th:field="*{id}" />
                     <label for="title">Title:</label>
                     <input type="text" id="title" th:field="*{title}" required>
             
@@ -43,5 +45,39 @@
     <div class="retur-btn-container">
         <a th:href="@{/admin/news-form}" class="return-btn">Back</a>
     </div>
+
+    <!-- Para mensajes de éxito -->
+    <div th:if="${successMessage}" class="success-message" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 10px; border-radius: 5px; text-align: center; animation: fadeOut 5s ease-out;">
+        <p th:text="${successMessage}">${successMessage}</p>
+    </div>
+
+    <!-- Para mensajes de error -->
+    <div th:if="${errorMessage}" class="error-message" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: red; color: white; padding: 10px; border-radius: 5px; text-align: center; animation: fadeOut 5s ease-out;">
+        <p th:text="${errorMessage}">${errorMessage}</p>
+    </div>
+
+    <style>
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+    </div>
+    <script th:if="${successMessage != null or errorMessage != null}">
+        setTimeout(function() {
+            var successMessageContainer = document.querySelector('.success-message');
+            var errorMessageContainer = document.querySelector('.error-message');
+
+            if (successMessageContainer) {
+                successMessageContainer.parentNode.removeChild(successMessageContainer);
+            }
+
+            if (errorMessageContainer) {
+                errorMessageContainer.parentNode.removeChild(errorMessageContainer);
+            }
+        }, 3000);  // Elimina el mensaje después de 3 segundos
+    </script>
+
+
 </body>
 </html>

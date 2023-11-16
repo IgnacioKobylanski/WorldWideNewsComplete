@@ -24,10 +24,7 @@ public class NewsController {
 
     @PostMapping
     public News saveNews(@ModelAttribute News news) {
-        // Guardar la noticia en la base de datos
         newsService.saveNews(news);
-
-        // Devolver la noticia guardada
         return news;
     }
 

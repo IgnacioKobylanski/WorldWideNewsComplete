@@ -41,8 +41,7 @@ public class AdminController {
     }
 
     @PostMapping("/create-news")
-    public String createNews(@ModelAttribute NewsForm newsForm,
-                             RedirectAttributes redirectAttributes,  Model model) throws IOException {
+    public String createNews(@ModelAttribute NewsForm newsForm, RedirectAttributes redirectAttributes,  Model model) throws IOException {
         News news = new News();
         news.setTitle(newsForm.getTitle());
         news.setDescription(newsForm.getDescription());
@@ -82,13 +81,11 @@ public class AdminController {
 
     @GetMapping("/delete-news")
     public String showDeleteNewsForm(Model model) {
-        // Lógica para mostrar el formulario de búsqueda
         return "delete-news";
     }
 
     @PostMapping("/confirm-delete")
     public String confirmDelete(@RequestParam("id") Long newsId, RedirectAttributes redirectAttributes) {
-        // Lógica para confirmar y eliminar la noticia
         Optional<News> optionalNewsToDelete = newsService.getNewsById(newsId);
 
         if (optionalNewsToDelete.isPresent()) {
@@ -161,9 +158,4 @@ public class AdminController {
 
         return "redirect:/admin/edit-news";
     }
-
-
-
-
-
 }

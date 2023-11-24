@@ -1,182 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Wide News</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="/imgs/newsLogo.png" type="image/png">
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-<header>
-    <nav><a href="#">Home</a></nav>
-    <nav><a href="#headlines">Headlines</a></nav>
-    <nav><a href="#local-news">Local News</a></nav>
-    <nav><a href="#international-news">International News</a></nav>
-    <nav><a href="#finance">Finance</a></nav>
-    <nav><a href="#sports">Sports</a></nav>
-    <nav><a href="#entertainment">Entertainment</a></nav>
-    <img src="/imgs/newsLogo.png" alt="newsLogo" class="newsLogo">
-</header>
-<main class="main-index">
-    <h1 class="webpage-name">World Wide News</h1>
-    <h2 class="title">News</h2>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WorldWide News</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="icon" href="/imgs/newsLogo.png" type="image/png">
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+    <header>
+        <nav><a href="#">Home</a></nav>
+        <nav><a href="#headlines">Headlines</a></nav>
+        <nav><a href="#local-news">Local News</a></nav>
+        <nav><a href="#international-news">International News</a></nav>
+        <nav><a href="#finance">Finance</a></nav>
+        <nav><a href="#sports-news">Sports</a></nav>
+        <nav><a href="#entertainment">Entertainment</a></nav>
+        <img src="/imgs/newsLogo.png" alt="newsLogo" class="newsLogo">
+    </header>
+    <main class="main-index">
+        <h1 class="webpage-name">WorldWide News</h1>
+        <h2 class="title">News</h2>
 
-    <div id="carousel" class="carousel slide carousel-fade">
-        <div class="carousel-inner">
-            <a href="/news">
-                <div class="carousel-item active">
-                    <img src="./assets/sources/imgs/bitcoins-img.png" class="d-block w-100" alt="bit-coins-img">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Argentina changes coin to Egg Coin.</h5>
-                        <p>The country decided to change the iconic peso to Egg Coins, so they can avoid infflation.</p>
-                    </div>
-                </div>
-            </a>
-
-
-            <a href="/news">
-                <div class="carousel-item">
-                    <img src="./assets/sources/imgs/fire-img.png" class="d-block w-100" alt="fire-img">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Hell Let Loose in Mendoza.</h5>
-                        <p>Mendoza is burning due to an intentional fire made by an tourist.</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="/news">
-                <div class="carousel-item">
-                    <img src="./assets/sources/imgs/world-cup-img.png" class="d-block w-100" alt="world-">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Fifa Scam.</h5>
-                        <p>Mbappe offered 1 millon euros to Fifa, asking to play the world cup again.</p>
-                    </div>
-                </div>
-            </a>
-
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <section id="headlines">
-        <h2>Headlines</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
-
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
+        <div id="carousel" class="carousel slide carousel-fade">
+            <div class="carousel-inner" id="carousel-inner-container">
+                <!-- Aquí se generará dinámicamente el contenido del carousel -->
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </section>
 
-    <section id="local-news">
-        <h2>Local News</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
 
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
-            </div>
+        <section id="headlines">
+            <h2>Headlines</h2>
+            <div id="headlines-container" class="news-container">
         </div>
-    </section>
+        </section>
 
-    <section id="international-news">
-        <h2>International News</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
+        <section id="local-news">
+            <h2>Local News</h2>
+            <div id="local-news-container" class="news-container"></div>
+        </section>
 
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
-            </div>
-        </div>
-    </section>
+        <section id="international-news">
+            <h2>International News</h2>
+            <div id="international-news-container" class="news-container"></div>
+        </section>
 
-    <section id="finance">
-        <h2>Finance</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
+        <section id="finance">
+            <h2>Finance</h2>
+            <div id="finance-container" class="news-container"></div>
+        </section>
 
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
-            </div>
-        </div>
-    </section>
+        <section id="sports-news">
+            <h2>Sports</h2>
+            <div id="sports-container" class="news-container"></div>
+        </section>
 
+        <section id="entertainment">
+            <h2>Entertainment</h2>
+            <div id="entertainment-container" class="news-container"></div>
+        </section>
 
-    <section id="sports">
-        <h2>Sports</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
+    </main>
 
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
-            </div>
-        </div>
-    </section>
+    <footer>
+        <p>Contact: info@worldwidenews.com</p>
+        <p>&copy;2023 WorldWide News</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script type="module" src="/js/index.js"></script>
+    </body>
 
-    <section id="entertainment">
-        <h2>Entertainment</h2>
-        <div class="small-news">
-            <img src="./assets/sources/imgs/haunted-house.png" alt="news-img" class="small-news-img">
-
-            <div class="text-container">
-                <h3 class="tile">
-                    Haunted house in Uruguay
-                </h3>
-                <p class="news-description">
-                    A Uruguayan girl discovered a demon in her house while streaming
-                </p>
-                <a href="/news" class="link-to-news">See more</a>
-            </div>
-        </div>
-    </section>
-
-</main>
-<footer>
-    <p>Contact: info@worldwidenews.com</p>
-    <p>&copy;2023 World Wide News</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="./assets/scripts/main.js"></script>
-</body>
-</html>
+    </html>

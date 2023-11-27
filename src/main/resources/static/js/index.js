@@ -1,3 +1,5 @@
+// index.js
+
 import { printHeadlines } from "/js/newsFunction.js";
 import { printNewsByCategory } from "/js/newsFunction.js";
 import { printCarousel } from "/js/newsFunction.js";
@@ -6,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     getNews();
 });
 
-function getNews() {
-    let news;
+let news;
 
+function getNews() {
     fetch('/api/news')
         .then(response => response.json())
         .then(newsData => {
@@ -27,3 +29,5 @@ function getNews() {
         })
         .catch(error => console.error('Error fetching news:', error));
 }
+
+export { news };

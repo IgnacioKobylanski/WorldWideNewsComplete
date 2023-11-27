@@ -1,3 +1,5 @@
+//newsFucntion.js
+
 //function for carousell
 export function printCarousel(array, carouselContainerId) {
     const carouselContainer = document.getElementById(carouselContainerId);
@@ -21,7 +23,7 @@ export function printCarousel(array, carouselContainerId) {
         }
 
         carouselItem.innerHTML = `
-            <a href="/news">
+            <a href="/news#${item.id}">
                 <img src="${item.imageUrl}" class="d-block w-100" alt="${item.title}">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>${item.title}</h5>
@@ -55,7 +57,7 @@ export function printHeadlines(array) {
             <div class="text-container">
                 <h3 class="tile">${item.title}</h3>
                 <p class="news-description">${item.description}</p>
-                <a href="/news" class="link-to-news">See more</a>
+                <a href="/news#${item.id}" class="link-to-news">See more</a>
             </div>
         `;
 
@@ -78,17 +80,10 @@ export function printNewsByCategory(array, containerId, category) {
             <div class="text-container">
                 <h3 class="tile">${item.title}</h3>
                 <p class="news-description">${item.description}</p>
-                <a href="/news" class="link-to-news">See more</a>
+                <a href="/news#${item.id}" class="link-to-news">See more</a>
             </div>
         `;
 
         container.appendChild(newsItem);
     }
 }
-
-
-
-
-
-
-

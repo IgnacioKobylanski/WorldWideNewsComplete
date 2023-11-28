@@ -17,7 +17,6 @@ export function printCarousel(array, carouselContainerId) {
         const carouselItem = document.createElement("div");
         carouselItem.classList.add("carousel-item");
 
-        // La primera noticia se marca como activa
         if (index === 0) {
             carouselItem.classList.add("active");
         }
@@ -32,7 +31,6 @@ export function printCarousel(array, carouselContainerId) {
             </a>
         `;
 
-        // Agregar el carouselItem al contenedor del carrusel
         carouselContainer.appendChild(carouselItem);
     }
 }

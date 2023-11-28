@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     getNewsData()
         .then(newsData => {
-            console.log('News data received:', newsData);
             const selectedNews = findNewsById(newsData, newsId);
 
             if (selectedNews) {

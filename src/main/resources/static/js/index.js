@@ -14,7 +14,6 @@ function getNews() {
     fetch('/api/news')
         .then(response => response.json())
         .then(newsData => {
-            console.log('Noticias obtenidas:', newsData);
 
             news = newsData;
 
